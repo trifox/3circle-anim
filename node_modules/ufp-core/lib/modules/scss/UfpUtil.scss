@@ -1,0 +1,46 @@
+$stepsDefault: 4;
+
+@function extend($obj, $ext-obj) {
+  @return map-merge($obj, $ext-obj);
+}
+
+@mixin gradientLighten($class, $color: yellow, $steps:$stepsDefault,$property:'color') {
+  @for $i from 0 through $steps {
+    .#{$class}-lighten-#{$i} {
+      #{$property} : lighten($color, $i*($lightenRange/$steps)) !important;
+    }
+  }
+}
+
+@mixin generateMargins($class, $baseMargin) {
+  @for $i from 0 through $steps {
+    .#{$class}-padding-#{$i} {
+      padding: pow($baseMargin, $i) !important;
+    }
+    .#{$class}-margin-#{$i} {
+      margin: pow($baseMargin, $i) !important;
+    }
+  }
+}
+
+@mixin gradientDarken($class, $color: yellow, $steps:$stepsDefault,$property:'color') {
+  @for $i from 0 through $steps {
+    .#{$class}-darken-#{$i} {
+      #{$property} : darken($color, $i*($darkenRange/$steps)) !important;;
+    }
+  }
+}
+
+@mixin gradient($class, $color: yellow, $steps:$stepsDefault ) {
+
+  .#{$class}bg {
+    background-color: $color !important;;
+  }
+  .#{$class} {
+    color: $color !important;;
+  }
+  @include gradientDarken($class, $color, $steps);
+  @include gradientLighten($class, $color, $steps);
+  @include gradientDarken($class+'bg', $color, $steps, 'background-color');
+  @include gradientLighten($class+'bg', $color, $steps, 'background-color');
+}

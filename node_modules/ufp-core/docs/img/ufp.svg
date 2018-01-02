@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+     width="128"
+     height="128"
+     viewBox="-4 -4 22 22">
+
+    <g id="ufp">
+
+        <path id="F"
+              d="M 1 14 V 1 h 9 M 1 9 h 9"
+              fill="transparent"
+              stroke="darkblue"
+              stroke-width="2">
+
+        </path>
+
+        <path id="P"
+              d="M 13 0 v 13 H 4 M 13 5 H 5 v 9"
+              fill="transparent"
+              stroke="darkblue"
+              stroke-width="2">
+
+        </path>
+
+    </g>
+</svg>

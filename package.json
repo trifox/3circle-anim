@@ -1,0 +1,27 @@
+{
+  "name": "3circle-anim",
+  "version": "1.0.0",
+  "description": "Fun Chaos Visualisation by 3 moving dots on circle pathes kind of an artsy project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trifox/3circle-anim.git"
+  },
+  "keywords": [
+    "fun",
+    "anim",
+    "chaos",
+    "mandelbrot"
+  ],
+  "author": "c.Kleinhuis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trifox/3circle-anim/issues"
+  },
+  "homepage": "https://github.com/trifox/3circle-anim#readme",
+  "dependencies": {
+  }
+}

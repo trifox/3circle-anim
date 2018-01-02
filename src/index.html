@@ -1,0 +1,108 @@
+<html >
+
+    <head >
+        <style >
+            body {
+            }
+
+            .red {
+                background-color : red;
+
+            }
+
+            .green {
+                background-color : green;
+
+            }
+
+            .blue {
+                background-color : blue;
+
+            }
+
+            .container {
+
+                position : relative;
+            }
+
+            .circle {
+                border-radius : 50%;
+                width         : 200px;
+                position      : fixed;
+                height        : 200px;
+            }
+
+
+        </style >
+
+    </head >
+
+    <body >
+
+        <h1 > proposal of chaos museum schematics logo animation * </h1 >
+        <p >all 3 circles move at different speeds on same radii, shifted none, horizontally,vertically by radius </p >
+        <p >the idea is to visualise 3ary systems</p >
+        <p >3 ary systems make seemingly chaotic processes</p >
+        <p >2 ary systems produce long periods when having non-disible periods, e.g. prime numbers</p >
+        <p >in 3 ary systems very long of such periods occur basically each time, hence currently visualising just 3
+            random periods</p >
+        <p >check if you can spot the period :)</p >
+        <br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br >
+        <br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br >
+        <br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br >
+        <p >* chaos museum is a project of christian kleinhuis leading to a chaos museum providing
+            experimental experience of chaos theory and its massive influence of nowadays technik - c.Kleinhuis is
+            former admin of fractalforumsl.com</p >
+        <div class="container" >
+            <div class="circle red"
+                 id="ball1" />
+            <div class="circle green"
+                 id="ball2" />
+            <div class="circle blue"
+                 id="ball3" />
+
+        </div >
+    </body >
+
+    <script >
+
+        var count1 = 0
+        var count2 = 0
+        var count3 = 0
+
+        var speed1 = Math.random() * Math.PI * 0.1
+        var speed2 = Math.random() * Math.PI * 0.1
+        var speed3 = Math.random() * Math.PI * 0.1
+
+        const sizex = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) / 8;
+        const sizey = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) / 8;
+        const borderx = sizex;
+        const bordery = sizey;
+        const willi = function () {
+
+            const circle1 = document.getElementById('ball1')
+            const circle2 = document.getElementById('ball2')
+            const circle3 = document.getElementById('ball3')
+
+            count1 += speed1
+            count2 += speed2
+            count3 += speed3
+
+            circle1.style.top = Math.sin(count1) * sizex + sizex + borderx
+            circle1.style.left = Math.cos(count1) * sizey + sizey + bordery
+
+            circle2.style.top = Math.sin(count2) * sizex + sizex + borderx
+            circle2.style.left = Math.cos(count2) * sizey + sizey + sizey / 2 + bordery
+
+            circle3.style.top = Math.sin(count3) * sizex + sizex + sizex / 2 + borderx
+            circle3.style.left = Math.cos(count3) * sizey + sizey + bordery
+
+        }
+
+        window.setInterval(willi, 1000 / 25)
+
+
+    </script >
+
+
+</html >

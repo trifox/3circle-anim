@@ -1,0 +1,38 @@
+/**
+Ufp Theme Utility Generator
+ */
+@import "UfpUtil";
+
+$default-theme-config: (
+        colorSpread : 35,
+        lightenRange : 100,
+        darkenRange : 10,
+        steps : 4,
+        baseColor : hsl(33, 50, 15),
+        baseMargin: 10,
+        basePadding:10
+);
+
+@mixin generateTheme($config) {
+
+  // merge the config using default-config as fallback
+  $conf: extend($default-theme-config, $config);
+
+  $steps: map-get($conf, "steps");
+  $baseColor1: map-get($conf, "baseColor");
+  $colorSpread: map-get($conf, "colorSpread");
+
+  $baseColor2: adjust_hue(complement($baseColor1), $colorSpread);
+  $baseColor3: adjust_hue(complement($baseColor1), -$colorSpread);
+
+  @include gradient(" c1 ", $baseColor1, $steps);
+  @include gradient(" c2 ", $baseColor2, $steps);
+  @include gradient(" c3 ", $baseColor3, $steps);
+
+}
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+{
+  "presets": [
+    "es2015",
+    "es2016",
+    "stage-0"
+  ],
+  "sourceMaps": "true",
+  "plugins": [
+    "babel-plugin-transform-react-jsx",
+    "transform-class-properties",
+    [
+      "transform-runtime",
+      {
+        "helpers": true,
+        "polyfill": false,
+        // we polyfill needed features in src/normalize.js
+        "regenerator": true,
+      }
+    ]
+  ]
+}
