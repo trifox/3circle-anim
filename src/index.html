@@ -71,23 +71,27 @@
         var count2 = 0
         var count3 = 0
 
-        var speed1 = Math.random() * Math.PI * 0.1
-        var speed2 = Math.random() * Math.PI * 0.1
-        var speed3 = Math.random() * Math.PI * 0.1
+        var speed1 = Math.random()   // rounds per second
+        var speed2 = Math.random()   // rounds per second
+        var speed3 = Math.random()   // rounds per second
 
         const sizex = Math.min(document.documentElement.clientHeight, document.documentElement.clientWidth) / 8;
         const sizey = sizex; // we want circles
         const borderx = (document.documentElement.clientWidth - sizex * 2) / 4;
         const bordery = sizey / 4;
-        const willi = function () {
+        var start = null;
+        var last = 0
+        function willi(timestamp) {
+            if (!start) start = timestamp;
 
+            var progress = (timestamp - last) * (1)
             const circle1 = document.getElementById('ball1')
             const circle2 = document.getElementById('ball2')
             const circle3 = document.getElementById('ball3')
 
-            count1 += speed1
-            count2 += speed2
-            count3 += speed3
+            count1 += speed1 / progress
+            count2 += speed2 / progress
+            count3 += speed3 / progress
 
             circle1.style.left = Math.sin(count1) * sizex + sizex + borderx
             circle1.style.top = Math.cos(count1) * sizey + sizey + bordery
@@ -97,10 +101,11 @@
 
             circle3.style.left = Math.sin(count3) * sizex + sizex + sizex + borderx
             circle3.style.top = Math.cos(count3) * sizey + sizey + bordery
-
+            last = timestamp
+            window.requestAnimationFrame(willi);
         }
 
-        window.setInterval(willi, 1000 / 25)
+        window.requestAnimationFrame(willi);
 
 
     </script >
