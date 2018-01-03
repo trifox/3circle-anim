@@ -40,7 +40,7 @@
     <body >
 
         <h1 > proposal of chaos museum schematics logo animation * </h1 >
-        <b >this is ART and shall not be removed!</b >
+        <h2 >this is ART and shall not be removed!</h2 >
         <p >all 3 circles move at different speeds on same radii, shifted none, horizontally,vertically by radius </p >
         <p >the idea is to visualise 3ary systems</p >
         <p >3 ary systems make seemingly chaotic processes</p >
@@ -75,10 +75,10 @@
         var speed2 = Math.random() * Math.PI * 0.1
         var speed3 = Math.random() * Math.PI * 0.1
 
-        const sizex = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) / 8;
-        const sizey = Math.max(document.documentElement.clientWidth, window.innerWidth || 0) / 8;
-        const borderx = sizex;
-        const bordery = sizey;
+        const sizex = Math.min(document.documentElement.clientHeight, document.documentElement.clientWidth) / 8;
+        const sizey = sizex; // we want circles
+        const borderx = (document.documentElement.clientWidth - sizex * 2) / 4;
+        const bordery = sizey / 4;
         const willi = function () {
 
             const circle1 = document.getElementById('ball1')
@@ -89,14 +89,14 @@
             count2 += speed2
             count3 += speed3
 
-            circle1.style.top = Math.sin(count1) * sizex + sizex + borderx
-            circle1.style.left = Math.cos(count1) * sizey + sizey + bordery
+            circle1.style.left = Math.sin(count1) * sizex + sizex + borderx
+            circle1.style.top = Math.cos(count1) * sizey + sizey + bordery
 
-            circle2.style.top = Math.sin(count2) * sizex + sizex + borderx
-            circle2.style.left = Math.cos(count2) * sizey + sizey + sizey / 2 + bordery
+            circle2.style.left = Math.sin(count2) * sizex + sizex + borderx
+            circle2.style.top = Math.cos(count2) * sizey + sizey + sizey + bordery
 
-            circle3.style.top = Math.sin(count3) * sizex + sizex + sizex / 2 + borderx
-            circle3.style.left = Math.cos(count3) * sizey + sizey + bordery
+            circle3.style.left = Math.sin(count3) * sizex + sizex + sizex + borderx
+            circle3.style.top = Math.cos(count3) * sizey + sizey + bordery
 
         }
 
